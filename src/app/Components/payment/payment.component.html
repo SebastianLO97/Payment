@@ -1,0 +1,70 @@
+<div class="container-fluid mt-5">
+	<div class="row">
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-5">
+			<mat-card class="paymentCard">
+				<mat-card-content>
+					<div class="container-fluid">
+						<div class="row my-4">
+							<div class="col-md-6">
+								<p>Current Credit Card</p>
+								<app-card
+									[cardHolder]="cardHolder"
+									[cardNumber]="cardNumber"
+								></app-card>
+							</div>
+							<div class="col-md-6">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<mat-form-field appearance="outline" class="w-100">
+									<mat-label>Name Of Card Holder</mat-label>
+									<input matInput maxlength="50" [(ngModel)]="cardHolder">
+								</mat-form-field>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<mat-form-field appearance="outline" class="w-100">
+									<mat-label>Credit Card Number</mat-label>
+									<input matInput #inputCardNumber appCarNumber (keyup)="cardNumber = inputCardNumber.value">
+								</mat-form-field>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<mat-form-field appearance="outline">
+									<mat-label>Expiration</mat-label>
+									<input matInput [matDatepicker]="dp" [formControl]="date" [maxlength]="5" [min]="today" class="w-100">
+									<mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+									<mat-datepicker #dp
+																	startView="multi-year"
+																	(monthSelected)="setMonthAndYear($event, dp)">
+									</mat-datepicker>
+								</mat-form-field>
+							</div>
+							<div class="col-md-6">
+								<mat-form-field appearance="outline" class="w-100">
+									<mat-label>CVV</mat-label>
+									<input type="text" matInput [(ngModel)]="cvv" maxlength="3" appOnlyNumbers>
+								</mat-form-field>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<button mat-raised-button color="primary" class="w-100" (click)="makePayment()">Make Payment</button>
+							</div>
+							<div class="col-md-6">
+								<button mat-stroked-button color="primary" class="w-100" (click)="cancel()">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</div>
+		<div class="col-md-3">
+		</div>
+	</div>
+</div>

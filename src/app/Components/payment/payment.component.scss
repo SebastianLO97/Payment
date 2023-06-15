@@ -1,0 +1,32 @@
+.paymentCard {
+  background-color: rgba(21, 129, 237, 255);
+}
+
+.mat-focused .mat-form-field-label {
+  color: white !important;
+}
+
+.mat-form-field-underline {
+  background-color: white !important;
+}
+
+.mat-form-field-ripple {
+  background-color: white !important;
+}
+
+input {
+  color: white !important;
+}
+
+p {
+  color: whitesmoke;
+}
+
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: rgba(237,248,236,255);
+}
+
+::ng-deep .mat-mdc-outlined-button:not(:disabled){
+  color: white !important;
+  border-color: white !important;
+}
